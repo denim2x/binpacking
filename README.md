@@ -5,14 +5,14 @@ This package contains greedy algorithms to solve two typical bin packing problem
 >>> import binpacking
 >>>
 >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
->>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+>>> bins = binpacking.fixed_count(b,4) # 4 being the number of bins
 >>> print("===== dict\n",b,"\n",bins)
 ===== dict
  {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
  [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
 >>>
 >>> b = list(b.values())
->>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+>>> bins = binpacking.fixed_volume(b,11) # 11 being the bin volume
 >>> print("===== list\n",b,"\n",bins)
 ===== list
  [10, 10, 11, 1, 2, 7]
@@ -74,11 +74,11 @@ in Python
 import binpacking
 
 b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
-bins = binpacking.to_constant_bin_number(b,4)
+bins = binpacking.fixed_count(b,4)
 print("===== dict\n",b,"\n",bins)
 
 b = list(b.values())
-bins = binpacking.to_constant_volume(b,11)
+bins = binpacking.fixed_volume(b,11)
 print("===== list\n",b,"\n",bins)
 
 ```

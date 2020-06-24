@@ -8,6 +8,566 @@ items into a low number of bins of constant size. Here's a usage example
 .. code:: python
 
     >>> import binpacking
+                >>>
+                >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+                >>> bins = binpacking.fixed_count(b,4) # 4 being the number of bins
+                >>> print("===== dict\n",b,"\n",bins)
+                ===== dict
+                 {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+                 [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+                >>>
+                >>> b = list(b.values())
+                >>> bins = binpacking.fixed_volume(b,11) # 11 being the bin volume
+                >>> print("===== list\n",b,"\n",bins)
+                ===== list
+                 [10, 10, 11, 1, 2, 7]
+                 [[11], [10], [10], [7, 2, 1]]
+
+            Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.gixed_count(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+        >>>
+        >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+        >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+        >>> print("===== dict\n",b,"\n",bins)
+        ===== dict
+         {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+         [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+        >>>
+        >>> b = list(b.values())
+        >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+        >>> print("===== list\n",b,"\n",bins)
+        ===== list
+         [10, 10, 11, 1, 2, 7]
+         [[11], [10], [10], [7, 2, 1]]
+
+    Consider you have a list of items, each carrying a weight
+                >>>
+                >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+                >>> bins = binpacking.fixed_count(b,4) # 4 being the number of bins
+                >>> print("===== dict\n",b,"\n",bins)
+                ===== dict
+                 {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+                 [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+                >>>
+                >>> b = list(b.values())
+                >>> bins = binpacking.fixed_volume(b,11) # 11 being the bin volume
+                >>> print("===== list\n",b,"\n",bins)
+                ===== list
+                 [10, 10, 11, 1, 2, 7]
+                 [[11], [10], [10], [7, 2, 1]]
+
+            Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.gixed_count(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+        >>>
+        >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+        >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+        >>> print("===== dict\n",b,"\n",bins)
+        ===== dict
+         {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+         [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+        >>>
+        >>> b = list(b.values())
+        >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+        >>> print("===== list\n",b,"\n",bins)
+        ===== list
+         [10, 10, 11, 1, 2, 7]
+         [[11], [10], [10], [7, 2, 1]]
+
+    Consider you have a list of items, each carrying a weight
+                >>>
+                >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+                >>> bins = binpacking.fixed_count(b,4) # 4 being the number of bins
+                >>> print("===== dict\n",b,"\n",bins)
+                ===== dict
+                 {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+                 [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+                >>>
+                >>> b = list(b.values())
+                >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+                >>> print("===== list\n",b,"\n",bins)
+                ===== list
+                 [10, 10, 11, 1, 2, 7]
+                 [[11], [10], [10], [7, 2, 1]]
+
+            Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.fixed_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.gixed_count(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+        >>>
+        >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+        >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+        >>> print("===== dict\n",b,"\n",bins)
+        ===== dict
+         {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+         [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+        >>>
+        >>> b = list(b.values())
+        >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+        >>> print("===== list\n",b,"\n",bins)
+        ===== list
+         [10, 10, 11, 1, 2, 7]
+         [[11], [10], [10], [7, 2, 1]]
+
+    Consider you have a list of items, each carrying a weight
+                >>>
+                >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+                >>> bins = binpacking.fixed_count(b,4) # 4 being the number of bins
+                >>> print("===== dict\n",b,"\n",bins)
+                ===== dict
+                 {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+                 [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+                >>>
+                >>> b = list(b.values())
+                >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+                >>> print("===== list\n",b,"\n",bins)
+                ===== list
+                 [10, 10, 11, 1, 2, 7]
+                 [[11], [10], [10], [7, 2, 1]]
+
+            Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.fixed_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.gixed_count(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+        >>>
+        >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+        >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+        >>> print("===== dict\n",b,"\n",bins)
+        ===== dict
+         {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+         [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+        >>>
+        >>> b = list(b.values())
+        >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+        >>> print("===== list\n",b,"\n",bins)
+        ===== list
+         [10, 10, 11, 1, 2, 7]
+         [[11], [10], [10], [7, 2, 1]]
+
+    Consider you have a list of items, each carrying a weight
+                >>>
+                >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+                >>> bins = binpacking.fixed_count(b,4) # 4 being the number of bins
+                >>> print("===== dict\n",b,"\n",bins)
+                ===== dict
+                 {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+                 [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+                >>>
+                >>> b = list(b.values())
+                >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+                >>> print("===== list\n",b,"\n",bins)
+                ===== list
+                 [10, 10, 11, 1, 2, 7]
+                 [[11], [10], [10], [7, 2, 1]]
+
+            Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.gixed_count(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.fixed_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+        >>>
+        >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+        >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+        >>> print("===== dict\n",b,"\n",bins)
+        ===== dict
+         {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+         [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+        >>>
+        >>> b = list(b.values())
+        >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+        >>> print("===== list\n",b,"\n",bins)
+        ===== list
+         [10, 10, 11, 1, 2, 7]
+         [[11], [10], [10], [7, 2, 1]]
+
+    Consider you have a list of items, each carrying a weight
+                >>>
+                >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+                >>> bins = binpacking.fixed_count(b,4) # 4 being the number of bins
+                >>> print("===== dict\n",b,"\n",bins)
+                ===== dict
+                 {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+                 [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+                >>>
+                >>> b = list(b.values())
+                >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+                >>> print("===== list\n",b,"\n",bins)
+                ===== list
+                 [10, 10, 11, 1, 2, 7]
+                 [[11], [10], [10], [7, 2, 1]]
+
+            Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.gixed_count(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.fixed_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+        >>>
+        >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+        >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+        >>> print("===== dict\n",b,"\n",bins)
+        ===== dict
+         {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+         [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+        >>>
+        >>> b = list(b.values())
+        >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+        >>> print("===== list\n",b,"\n",bins)
+        ===== list
+         [10, 10, 11, 1, 2, 7]
+         [[11], [10], [10], [7, 2, 1]]
+
+    Consider you have a list of items, each carrying a weight
+                >>>
+                >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+                >>> bins = binpacking.fixed_count(b,4) # 4 being the number of bins
+                >>> print("===== dict\n",b,"\n",bins)
+                ===== dict
+                 {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+                 [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+                >>>
+                >>> b = list(b.values())
+                >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+                >>> print("===== list\n",b,"\n",bins)
+                ===== list
+                 [10, 10, 11, 1, 2, 7]
+                 [[11], [10], [10], [7, 2, 1]]
+
+            Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.gixed_count(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+        >>>
+        >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+        >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+        >>> print("===== dict\n",b,"\n",bins)
+        ===== dict
+         {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+         [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+        >>>
+        >>> b = list(b.values())
+        >>> bins = binpacking.fixed_volume(b,11) # 11 being the bin volume
+        >>> print("===== list\n",b,"\n",bins)
+        ===== list
+         [10, 10, 11, 1, 2, 7]
+         [[11], [10], [10], [7, 2, 1]]
+
+    Consider you have a list of items, each carrying a weight
+                >>>
+                >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+                >>> bins = binpacking.fixed_count(b,4) # 4 being the number of bins
+                >>> print("===== dict\n",b,"\n",bins)
+                ===== dict
+                 {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+                 [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+                >>>
+                >>> b = list(b.values())
+                >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+                >>> print("===== list\n",b,"\n",bins)
+                ===== list
+                 [10, 10, 11, 1, 2, 7]
+                 [[11], [10], [10], [7, 2, 1]]
+
+            Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.gixed_count(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+        >>>
+        >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+        >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+        >>> print("===== dict\n",b,"\n",bins)
+        ===== dict
+         {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+         [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+        >>>
+        >>> b = list(b.values())
+        >>> bins = binpacking.fixed_volume(b,11) # 11 being the bin volume
+        >>> print("===== list\n",b,"\n",bins)
+        ===== list
+         [10, 10, 11, 1, 2, 7]
+         [[11], [10], [10], [7, 2, 1]]
+
+    Consider you have a list of items, each carrying a weight
+            >>>
+            >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+            >>> bins = binpacking.fixed_count(b,4) # 4 being the number of bins
+            >>> print("===== dict\n",b,"\n",bins)
+            ===== dict
+             {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+             [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+            >>>
+            >>> b = list(b.values())
+            >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+            >>> print("===== list\n",b,"\n",bins)
+            ===== list
+             [10, 10, 11, 1, 2, 7]
+             [[11], [10], [10], [7, 2, 1]]
+
+        Consider you have a list of items, each carrying a weight
+        >>>
+        >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+        >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
+        >>> print("===== dict\n",b,"\n",bins)
+        ===== dict
+         {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+         [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+        >>>
+        >>> b = list(b.values())
+        >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+        >>> print("===== list\n",b,"\n",bins)
+        ===== list
+         [10, 10, 11, 1, 2, 7]
+         [[11], [10], [10], [7, 2, 1]]
+
+    Consider you have a list of items, each carrying a weight
+        >>>
+        >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
+        >>> bins = binpacking.gixed_count(b,4) # 4 being the number of bins
+        >>> print("===== dict\n",b,"\n",bins)
+        ===== dict
+         {'a': 10, 'b': 10, 'c': 11, 'd': 1, 'e': 2, 'f': 7}
+         [{'c': 11}, {'b': 10}, {'a': 10}, {'f': 7, 'e': 2, 'd': 1}]
+        >>>
+        >>> b = list(b.values())
+        >>> bins = binpacking.to_constant_volume(b,11) # 11 being the bin volume
+        >>> print("===== list\n",b,"\n",bins)
+        ===== list
+         [10, 10, 11, 1, 2, 7]
+         [[11], [10], [10], [7, 2, 1]]
+
+    Consider you have a list of items, each carrying a weight
     >>>
     >>> b = { 'a': 10, 'b': 10, 'c':11, 'd':1, 'e': 2,'f':7 }
     >>> bins = binpacking.to_constant_bin_number(b,4) # 4 being the number of bins
